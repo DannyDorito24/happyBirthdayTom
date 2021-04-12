@@ -16,27 +16,27 @@ bot.once('ready', () => {
           type: "WATCHING",
       }
   })});
-bot.on('msg', message => {
-    console.log(msg.author.username, "sent:", msg.content);
-    if (msg.author.bot) return;
-    switch (msg.content) {
+bot.on('message', message => {
+    console.log(message.author.username, "sent:", message.content);
+    if (message.author.bot) return;
+    switch (message.content) {
         case "e":
-            msg.channel.send('e');
+            message.channel.send('e');
             break;
         case "uwu":
-            msg.channel.send("0w0");
+            message.channel.send("0w0");
             break;
         case "owo":
-            msg.channel.send("UwU");
+            message.channel.send("UwU");
             break;
         case "h":
-            msg.channel.send("h");
+            message.channel.send("h");
             break;
         case "beef":
-            msg.channel.send("beef");
+            message.channel.send("beef");
             break;
         case "!log":
-            essage.channel.bulkDelete(1);
+            message.channel.bulkDelete(1);
             const logU = bot.emojis.cache.find(emoji => emoji.name === "logU");
             message.channel.send(`${logU}`);
             break;
@@ -50,6 +50,7 @@ bot.on('msg', message => {
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
             message.channel.send("The Marriage between hewwo_owo1 and Tomcuteko is in " + weeks + " Weeks, " + days + " Days, " + hours + " Hours, and "+ minutes + " Minutes.")
+            break;
         default:
             return;
     }
