@@ -4,6 +4,7 @@ const TOKEN = process.env.TOKEN
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
+
 bot.login(TOKEN);
 bot.once('ready', () => {
     console.log("ready")
@@ -18,6 +19,9 @@ bot.once('ready', () => {
   })});
 bot.on('message', message => {
     console.log(message.author.username, "sent:", message.content);
+    const prefix = "!";
+    const args = message.content.slice(prefix.length).trim().split(' ');
+    const command = args.shift().toLowerCase();
     if (message.author.bot) return;
     switch (message.content) {
         case "e":
@@ -53,8 +57,14 @@ bot.on('message', message => {
             break;
         default:
             return;
-    }
+}
+if (message.content.startsWith('!say')) {
+    const SayMessage = message.content.slice(4).trim();
+    message.channel.send("**" + SayMessage + "**")
+    message.channel.send("- " + `**${message.author}**`)
+}
 });
+
 let scheduledMessage = new cron.CronJob('0 13 * * *', () => {
     var countDownDate = new Date("May 1, 2021 13:00:00").getTime();
     var now = new Date().getTime();
