@@ -27,7 +27,7 @@ bot.on('message', message => {
         case "Who is the cutest?":
             const cute = [
                 "Tomlacko is the cute",
-                "Hewwo_owo1 is the cute",
+                "hewwo_owo1 is the cute",
                 "chairpop is cute",
                 "Idk who's the cutest, but it isn't chair bot",
                 "ESS83 is cute",
@@ -54,10 +54,10 @@ bot.on('message', message => {
                 "MrSpike is cute",
                 "ToothpasteVixen is cute",
                 "urielsalis is cute",
-                "Tom and Hewwo are cute",
-                "Tom and Hewwo are cute",
-                "Tom and Hewwo are cute",
-                "Tom and Hewwo are cute"
+                "Tom and hewwo_owo1 are cute",
+                "Tom and hewwo_owo1 are cute",
+                "Tom and hewwo_owo1 are cute",
+                "Tom and hewwo_owo1 are cute"
             ]
             const cute_index = Math.floor(Math.random() * (cute.length - 1) + 1);
             message.channel.send(cute[cute_index])
