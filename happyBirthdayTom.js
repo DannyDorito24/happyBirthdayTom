@@ -24,6 +24,44 @@ bot.on('message', message => {
     const command = args.shift().toLowerCase();
     if (message.author.bot) return;
     switch (message.content) {
+        case "Who is the cutest?":
+            const cute = [
+                "Tomlacko is the cute",
+                "Hewwo_owo1 is the cute",
+                "chairpop is cute",
+                "Idk who's the cutest, but it isn't chair bot",
+                "ESS83 is cute",
+                "Matt is cute",
+                "sigma bot is cute",
+                "Philipp_DE is cute",
+                "355-83 is cute",
+                "cortex is cute",
+                "cyktom is cute",
+                "DannyDorito is cute",
+                "BoySanic is cute",
+                "Flamingowrangler is cute",
+                "polymetric is cute",
+                "RussEfarmer is cute",
+                "Stinky queen is cute",
+                "DutChen is cute",
+                "Maze is cute",
+                "all hail cheese is cute",
+                "Cactooz is cute",
+                "Cactus is cute",
+                "EssAyyEmm is cute",
+                "kronzal is cute",
+                "MrFreeeMAKER is cute",
+                "MrSpike is cute",
+                "ToothpasteVixen is cute",
+                "urielsalis is cute",
+                "Tom and Hewwo are cute",
+                "Tom and Hewwo are cute",
+                "Tom and Hewwo are cute",
+                "Tom and Hewwo are cute"
+            ]
+            const cute_index = Math.floor(Math.random() * (cute.length - 1) + 1);
+            message.channel.send(cute[cute_index])
+            break;
         case "e":
             message.channel.send('e');
             break;
