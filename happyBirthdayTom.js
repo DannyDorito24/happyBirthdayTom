@@ -19,7 +19,7 @@ bot.once('ready', () => {
   })});
 bot.on('message', message => {
     console.log(message.author.username, "sent:", message.content);
-    const prefix = "!";
+    const prefix = ".";
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
     if (message.author.bot) return;
@@ -31,8 +31,11 @@ bot.on('message', message => {
                 "chairpop is cute",
                 "Idk who's the cutest, but it isn't chair bot",
                 "ESS83 is cute",
-                "Matt is cute",
-                "sigma bot is cute",
+                "~Matt is cute",
+                "gamer bot is cute",
+                "355-83 is cute",
+                "Honkey is cute",
+                "uwuBot is cute uwu",
                 "Philipp_DE is cute",
                 "355-83 is cute",
                 "cortex is cute",
@@ -82,7 +85,7 @@ bot.on('message', message => {
             const logU = bot.emojis.cache.find(emoji => emoji.name === "logU");
             message.channel.send(`${logU}`);
             break;
-        case "!w":
+        case ".w":
             var countDownDate = new Date("May 1, 2021 13:00:00").getTime();
             var now = new Date().getTime();
             var distance = countDownDate - now;
@@ -93,10 +96,13 @@ bot.on('message', message => {
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
             message.channel.send("The Marriage between hewwo_owo1 and Tomcuteko is in " + weeks + " Weeks, " + days + " Days, " + hours + " Hours, and "+ minutes + " Minutes.")
             break;
+        case "Nya~":
+            message.channel.send("Nya~")
+            break;
         default:
             return;
 }
-if (message.content.startsWith('!say')) {
+if (message.content.startsWith('.say')) {
     const SayMessage = message.content.slice(4).trim();
     message.channel.send("**" + SayMessage + "**")
     message.channel.send("- " + `**${message.author}**`)
@@ -114,8 +120,4 @@ let scheduledMessage = new cron.CronJob('0 13 * * *', () => {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     bot.channels.cache.get('830806015602720769').send("The Marriage between hewwo_owo1 and Tomcuteko is in " + weeks + " weeks and " + days + " Days");
 })
-let happyBirthday = new cron.CronJob('0 * * * *', () => {
-    bot.channels.cache.get('825457540509728848').send("Happy Birthday <@263862604915539969>")
-})
-
 scheduledMessage.start()
