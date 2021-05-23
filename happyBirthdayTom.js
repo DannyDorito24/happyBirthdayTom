@@ -23,10 +23,32 @@ bot.on('message', message => {
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
     if(message.author.bot) return;
-    switch (message.content) {
-        case `${prefix}nick`:
-          msg.guild.members.get("825469814759751710").setNickname(args)
-          break;
+    if (message.content.startsWith(prefix)) {
+        const input = message.content.slice(prefix.length).trim().split(' ');
+        const command = input.shift();
+        const args = input.join(' ');
+        console.log(command);
+        console.log(args);
+          if (command === 'ping') {
+          message.channel.send(`🏓 Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ws.ping)}ms.`)
+        } else if (command === 'setAvatar') {
+          bot.user.setAvatar(args)
+        } else if (command === 'setStatus') {
+          bot.user.setActivity(args)
+        } else if (command === 'setUsername') {
+          bot.user.setUsername(args)
+        } else if (command === 'nick') {
+          message.guild.me.setNickname(args);
+        }}
+if (message.content == '!!ban') {
+  message.channel.send('Okay, user banned!')
+}
+if (message.content.startsWith('.say')) {
+    const SayMessage = message.content.slice(4).trim();
+    message.channel.send("**" + SayMessage + "**")
+    message.channel.send("- " + `**${message.author}**`)
+}
+switch (message.content) {
         case "Who is the cutest?":
             const cute = [
                 "Tomlacko is the cute",
@@ -123,42 +145,7 @@ bot.on('message', message => {
             break;
         default:
             return;
-}
-if (message.content.startsWith(prefix)) {
-        const input = message.content.slice(prefix.length).trim().split(' ');
-        const command = input.shift();
-        const args = input.join(' ');
-        console.log(command);
-        console.log(args);
-          if (command === 'ping') {
-          message.channel.send(`🏓 Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms.`)
-        } else if (command === 'setAvatar') {
-          bot.user.setAvatar(args)
-        } else if (command === 'setStatus') {
-          bot.user.setActivity(args)
-        } else if (command === 'setUsername') {
-          bot.user.setUsername(args)
-        }}
-if (message.content == '!!ban') {
-  message.channel.send('Okay, user banned!')
-}
-if (message.content.startsWith('.say')) {
-    const SayMessage = message.content.slice(4).trim();
-    message.channel.send("**" + SayMessage + "**")
-    message.channel.send("- " + `**${message.author}**`)
-}
-if (message.content == '.forcecountdown') {
-   var countDownDate = new Date("June 1, 2021 00:00:30").getTime();
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
-    var weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
-    var days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    bot.channels.cache.get('845070775207591946').send("The wedding between ESS83 and flamingowrangler is in " + weeks + " weeks and " + days + " days.");
-}
-});
+}});
 let scheduledMessage = new cron.CronJob('0 12 * * *', () => {
     var countDownDate = new Date("June 1, 2021 00:00:30").getTime();
     var now = new Date().getTime();
@@ -168,6 +155,6 @@ let scheduledMessage = new cron.CronJob('0 12 * * *', () => {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    bot.channels.cache.get('845070775207591946').send("The wedding between ESS83 and flamingowrangler is in " + weeks + " weeks and " + days + " days.");
+    bot.channels.cache.get('845070775207591946').send("The wedding between ESS83 and flamingowrangler is in " + weeks + " week.");
 })
 scheduledMessage.start()
