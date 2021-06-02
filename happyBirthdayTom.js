@@ -18,7 +18,6 @@ bot.once('ready', () => {
       }
   })});
 bot.on('message', message => {
-    console.log(message.author.username, "sent:", message.content);
     const prefix = ".";
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
@@ -48,47 +47,13 @@ if (message.content.startsWith('.say')) {
     message.channel.send("**" + SayMessage + "**")
     message.channel.send("- " + `**${message.author}**`)
 }
+if (message.content.startsWith('.saay')) {
+    const SayMessage = message.content.slice(5).trim();
+    message.channel.send(SayMessage)
+}
 switch (message.content) {
         case "Who is the cutest?":
-            const cute = [
-                "Tomlacko is the cute",
-                "hewwo_owo1 is the cute",
-                "chairpop is cute",
-                "Idk who's the cutest, but it isn't chair bot",
-                "ESS83 is cute",
-                "~Matt is cute",
-                "gamer bot is cute",
-                "355-83 is cute",
-                "Honkey is cute",
-                "uwuBot is cute uwu",
-                "Philipp_DE is cute",
-                "355-83 is cute",
-                "cortex is cute",
-                "cyktom is cute",
-                "DannyDorito is cute",
-                "BoySanic is cute",
-                "Flamingowrangler is cute",
-                "polymetric is cute",
-                "RussEfarmer is cute",
-                "Stinky queen is cute",
-                "DutChen is cute",
-                "Maze is cute",
-                "all hail cheese is cute",
-                "Cactooz is cute",
-                "Cactus is cute",
-                "EssAyyEmm is cute",
-                "kronzal is cute",
-                "MrFreeeMAKER is cute",
-                "MrSpike is cute",
-                "ToothpasteVixen is cute",
-                "urielsalis is cute",
-                "Tom and hewwo_owo1 are cute",
-                "Tom and hewwo_owo1 are cute",
-                "Tom and hewwo_owo1 are cute",
-                "Tom and hewwo_owo1 are cute"
-            ]
-            const cute_index = Math.floor(Math.random() * (cute.length - 1) + 1);
-            message.channel.send(cute[cute_index])
+            message.channel.send("Loggers is the cutest, obviously.")
             break;
         case "e":
             message.channel.send('e');
@@ -117,8 +82,12 @@ switch (message.content) {
             const catboyloggers = bot.emojis.cache.find(emoji => emoji.name === "botasset1");
             message.channel.send(`${catboyloggers}`);
             break;
+        case "!N00bBot":
+            const N00bBot = bot.emojis.cache.find(emoji => emoji.name === "petN00bBot");
+            message.channel.send(`${N00bBot}`);
+            break;
         case ".w":
-            var countDownDate = new Date("June 1, 2021 00:00:00").getTime();
+            var countDownDate = new Date("June 5, 2021 00:00:00").getTime();
             var now = new Date().getTime();
             var distance = countDownDate - now;
             var weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
@@ -126,7 +95,7 @@ switch (message.content) {
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            message.channel.send("The wedding between ESS83 and flamingowrangler is in " + weeks + " weeks and " + days + " days.")
+            message.channel.send("Error: Tomlacko exception at line 87: weddingtime is not defined. Estimate is " + days + " days.")
             break;
         case ".v2":
             message.channel.send("Congrats to Tomlacko and hewwo. We hope that you have a long and happy marriage, and that the bond between you will never be broken. OwO")
@@ -147,7 +116,7 @@ switch (message.content) {
             return;
 }});
 let scheduledMessage = new cron.CronJob('0 12 * * *', () => {
-    var countDownDate = new Date("June 1, 2021 00:00:30").getTime();
+    var countDownDate = new Date("June 5, 2021 12:00:30").getTime();
     var now = new Date().getTime();
     var distance = countDownDate - now;
     var weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
@@ -155,6 +124,6 @@ let scheduledMessage = new cron.CronJob('0 12 * * *', () => {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    bot.channels.cache.get('845070775207591946').send("The wedding between ESS83 and flamingowrangler is in " + weeks + " week.");
+    bot.channels.cache.get('845070775207591946').send("Error: Tomlacko exception at line 116: weddingtime is not defined. Estimate is " + days + " days.");
 })
 scheduledMessage.start()
